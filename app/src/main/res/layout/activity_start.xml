@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="#C3F54357"
+    android:orientation="vertical"
+    tools:context=".activities.StartActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00BE4646"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="200sp"
+
+            android:layout_marginTop="150sp"
+            app:srcCompat="@drawable/tinder_clone_logo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100sp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button2"
+
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="250sp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80sp"
+                android:background="#6200EA"
+                android:text="LOGIN"
+                android:textColor="#EDFDFCFC"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button"
+
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="250sp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80sp"
+                android:layout_marginTop="40sp"
+                android:background="#6200EA"
+                android:text="SIGN UP"
+                android:textColor="#EDFDFCFC"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
