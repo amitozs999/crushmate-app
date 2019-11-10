@@ -36,28 +36,29 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/buttonlogin"
+android:onClick="onlogin"
 
-                style="@style/Widget.AppCompat.Button.Colored"
+                style="@style/standardbutton"
                 android:layout_width="250sp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80sp"
-                android:background="#6200EA"
+
                 android:text="LOGIN"
                 android:textColor="#EDFDFCFC"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/button"
-
-                style="@style/Widget.AppCompat.Button.Colored"
+                android:id="@+id/buttonsignup"
+               android:onClick="onsignup"
+                style="@style/standardbutton"
                 android:layout_width="250sp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80sp"
                 android:layout_marginTop="40sp"
-                android:background="#6200EA"
                 android:text="SIGN UP"
+
                 android:textColor="#EDFDFCFC"
                 android:textSize="22sp"
                 android:textStyle="bold" />

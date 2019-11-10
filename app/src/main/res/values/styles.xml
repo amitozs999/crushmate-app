@@ -7,5 +7,11 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="standardbutton">
+        <item name="android:background" > @drawable/roundedbutton</item>
+
+
+    </style>
+
 
 </resources>
