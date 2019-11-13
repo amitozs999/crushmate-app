@@ -31,16 +31,19 @@ class SignupActivity : AppCompatActivity() {
 
         signupButton.setOnClickListener {
             if(!emailsu.text.toString().isNullOrEmpty() && !passwordsu.text.toString().isNullOrEmpty()) {
+
                 firebaseAuth.createUserWithEmailAndPassword(emailsu.text.toString(), passwordsu.text.toString())
                     .addOnCompleteListener { task ->
                         if(!task.isSuccessful) {
                             Toast.makeText(this, "Signup error ${task.exception?.localizedMessage}", Toast.LENGTH_SHORT).show()
                         }
                     }
+
+
+
             }
 
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+
         }
     }
 
