@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1068340239918",
+    "firebase_url": "https://crushmate-app.firebaseio.com",
+    "project_id": "crushmate-app",
+    "storage_bucket": "crushmate-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068340239918:android:25e3abc2a7cd5d5db349bf",
+        "android_client_info": {
+          "package_name": "com.crushmateapp.crushmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1068340239918-5skru96fb35s2bdf3rjjjbh8dtch6pti.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.crushmateapp.crushmate",
+            "certificate_hash": "54cd2c0b2d4e5f9c66727fbb71261a34c28a6973"
+          }
+        },
+        {
+          "client_id": "1068340239918-6q8krcd3j02q1qa83sspav2d8i0ptrum.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqKAXmFgyFUE4xUcYE-XnxY87skX1i0HY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1068340239918-6q8krcd3j02q1qa83sspav2d8i0ptrum.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
