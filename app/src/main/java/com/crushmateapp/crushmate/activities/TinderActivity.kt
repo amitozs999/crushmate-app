@@ -1,6 +1,8 @@
 package com.crushmateapp.crushmate.activities
 
+import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -17,6 +19,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 
+const val REQUEST_CODE = 123
 class TinderActivity : AppCompatActivity(),TinderCallback {
 
 
@@ -35,6 +38,8 @@ class TinderActivity : AppCompatActivity(),TinderCallback {
     private var profileTab: TabLayout.Tab? = null
     private var swipeTab: TabLayout.Tab? = null
     private var matchesTab: TabLayout.Tab? = null
+
+    private var resultImageUrl: Uri? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -123,13 +128,30 @@ class TinderActivity : AppCompatActivity(),TinderCallback {
         return userDatabase
 
     }
+
+    override fun profileComplete() {
+        swipeTab?.select()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE) {
+            resultImageUrl = data?.data
+
+        }
+
+    }
+    override fun ActivityForPhoto() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, REQUEST_CODE) //it opens new activity for choosing photo
+                                                     //recieve it inside onactivityresult
+
+    }
+
     fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, fragment)
             .commit()
     }
-    override fun profileComplete() {
-        swipeTab?.select()
-    }
-
 }

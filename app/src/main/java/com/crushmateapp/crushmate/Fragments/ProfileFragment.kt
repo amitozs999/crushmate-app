@@ -47,6 +47,9 @@ class ProfileFragment : Fragment() {
 
         populateInfo()
 
+        image1.setOnClickListener{
+            callback?.ActivityForPhoto()   // activityforphoto is a function of interface callback which is implemented inside tinderactivity
+        }
         applyButton.setOnClickListener { onApply() }
         signoutButton.setOnClickListener { callback?.onSignout() }
     }
