@@ -128,5 +128,8 @@ class TinderActivity : AppCompatActivity(),TinderCallback {
             .replace(R.id.fragmentContainer, fragment)
             .commit()
     }
+    override fun profileComplete() {
+        swipeTab?.select()
+    }
 
 }
