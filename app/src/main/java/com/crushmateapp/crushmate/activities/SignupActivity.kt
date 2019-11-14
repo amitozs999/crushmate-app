@@ -11,7 +11,6 @@ import com.crushmateapp.crushmate.util.DATA_USERS
 import com.crushmateapp.crushmate.util.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_signup.*
 
 class SignupActivity : AppCompatActivity() {
@@ -21,7 +20,7 @@ class SignupActivity : AppCompatActivity() {
     private val firebaseAuthListener = FirebaseAuth.AuthStateListener {
         val user = firebaseAuth.currentUser
         if(user != null) {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, TinderActivity::class.java)
             startActivity(intent)
 
             finish()
