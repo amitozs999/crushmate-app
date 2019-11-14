@@ -2,7 +2,7 @@ package com.crushmateapp.crushmate.activities
 
 import com.google.firebase.database.DatabaseReference
 
-interface TinerCallback {
+interface TinderCallback {
 
     fun onSignout()
     fun onGetUserId(): String

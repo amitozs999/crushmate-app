@@ -3,9 +3,7 @@ package com.crushmateapp.crushmate.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.crushmateapp.crushmate.Fragments.MatchesFragment
@@ -17,10 +15,9 @@ import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.lorentzos.flingswipe.SwipeFlingAdapterView
 import kotlinx.android.synthetic.main.activity_main.*
 
-class TinderActivity : AppCompatActivity(),TinerCallback {
+class TinderActivity : AppCompatActivity(),TinderCallback {
 
 
 
@@ -76,6 +73,7 @@ class TinderActivity : AppCompatActivity(),TinerCallback {
                     profileTab -> {
                         if (profileFragment == null) {
                             profileFragment = ProfileFragment()
+                            profileFragment!!.setCallback(this@TinderActivity)
 
                         }
                         replaceFragment(profileFragment!!)
@@ -83,6 +81,7 @@ class TinderActivity : AppCompatActivity(),TinerCallback {
                     swipeTab -> {
                         if (swipeFragment == null) {
                             swipeFragment = SwipeFragment()
+                            swipeFragment!!.setCallback(this@TinderActivity)
 
                         }
                         replaceFragment(swipeFragment!!)
@@ -90,6 +89,7 @@ class TinderActivity : AppCompatActivity(),TinerCallback {
                     matchesTab -> {
                         if (matchesFragment == null) {
                             matchesFragment = MatchesFragment()
+                            matchesFragment!!.setCallback(this@TinderActivity)
 
                         }
                         replaceFragment(matchesFragment!!)
