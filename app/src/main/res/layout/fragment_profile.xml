@@ -1,14 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="this is your your profile" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <RelativeLayout
+            android:id="@+id/profileLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="200sp"
+                android:layout_height="300sp"
+                android:layout_marginLeft="50sp"
+                android:paddingBottom="8dp"
+                android:src="@drawable/default_pic" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameti"
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/image1"
+                android:layout_marginTop="30sp"
+                android:paddingBottom="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailti"
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nameti"
+                android:paddingBottom="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ageti"
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/emailti"
+                android:paddingBottom="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ageet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Age" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/radio1Layout"
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ageti"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/genderTV"
+                    android:layout_width="0dp"
+                    android:layout_height="50sp"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:text="Gender" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup1"
+                    android:layout_width="0dp"
+                    android:layout_height="50sp"
+                    android:layout_weight="2"
+                    android:paddingBottom="8dp"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioMan1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Male" />
+
+                    <RadioButton
+                        android:id="@+id/radioWoman1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Female" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/radio2Layout"
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/radio1Layout"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/preferredGenderTV"
+                    android:layout_width="38sp"
+                    android:layout_height="50sp"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:text="Peferred Gender" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup2"
+                    android:layout_width="0dp"
+                    android:layout_height="50sp"
+                    android:layout_weight="2"
+                    android:paddingBottom="8dp"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioMan2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Male" />
+
+                    <RadioButton
+                        android:id="@+id/radioWoman2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Female" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/applyButton"
+                style="@style/standardbutton"
+                android:layout_width="150sp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/radio2Layout"
+                android:layout_marginLeft="65sp"
+                android:layout_marginTop="30sp"
+                android:text="Apply"
+                android:textColor="#EDFDFCFC"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/signoutButton"
+                style="@style/standardbutton"
+                android:layout_width="150sp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/applyButton"
+                android:layout_marginLeft="65sp"
+                android:layout_marginTop="10sp"
+                android:text="Sign Out"
+                android:textColor="#EDFDFCFC"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
