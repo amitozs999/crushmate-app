@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.UserDetailActivity"></activity>
+        <activity android:name=".activities.ChatActivity"></activity>
+        <activity android:name=".activities.UserDetailActivity" />
         <activity
             android:name=".activities.SignupActivity"
             android:screenOrientation="portrait"

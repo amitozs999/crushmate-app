@@ -7,7 +7,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/chatPictureIV"
+        android:id="@+id/chatdp"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:scaleType="centerInside"
@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/chatNameTV"
+        android:id="@+id/chatter"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:gravity="center_vertical"
@@ -23,6 +23,6 @@
         android:text="Hello"
         android:layout_marginLeft="8dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/chatPictureIV"/>
+        app:layout_constraintStart_toEndOf="@+id/chatdp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
