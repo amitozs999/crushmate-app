@@ -131,7 +131,18 @@ class SwipeFragment : Fragment() {
             }
         })
 
+        frame.setOnItemClickListener { position, data -> }
+        likeButton.setOnClickListener {
+            if (!Itemlist.isEmpty()) {
+                frame.topCardListener.selectRight()
+            }
+        }
 
+        dislikeButton.setOnClickListener {
+            if (!Itemlist.isEmpty()) {
+                frame.topCardListener.selectLeft()
+            }
+        }
 
 
     }

@@ -11,26 +11,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-
-        <activity android:name="com.crushmateapp.crushmate.activities.SignupActivity"
+        <activity android:name=".activities.UserDetailActivity"></activity>
+        <activity
+            android:name=".activities.SignupActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize"
-            />
-
-        <activity android:name="com.crushmateapp.crushmate.activities.LoginActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.LoginActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize"/>
-        <activity android:name="com.crushmateapp.crushmate.activities.StartActivity" >
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".activities.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.crushmateapp.crushmate.activities.TinderActivity"
+        <activity
+            android:name=".activities.TinderActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize"/>
-
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>
