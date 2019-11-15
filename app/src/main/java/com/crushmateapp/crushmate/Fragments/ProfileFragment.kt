@@ -16,6 +16,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 /**
@@ -82,7 +83,9 @@ class ProfileFragment : Fragment() {
                     if (user?.preferredGender == "female") {
                         radioWoman2.isChecked = true
                     }
-
+                    if(!user?.imageurl.isNullOrEmpty()) {
+                        populateImage(user?.imageurl!!)
+                    }
                     progresslay.visibility = View.GONE
                 }
             }
@@ -117,6 +120,14 @@ class ProfileFragment : Fragment() {
 
             callback?.profileComplete()
         }
+    }
+    fun updateImageUri(uri: String) {
+        userDatabase.child("imageurl").setValue(uri)
+        populateImage(uri)
+    }
+    fun populateImage(uri: String){
+        Picasso.get().load(uri).resize(200,250).into(image1)
+
     }
 
 }
