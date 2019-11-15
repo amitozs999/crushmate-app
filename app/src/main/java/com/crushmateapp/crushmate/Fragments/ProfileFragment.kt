@@ -10,7 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 
 import com.crushmateapp.crushmate.R
-import com.crushmateapp.crushmate.activities.TinderCallback
+import com.crushmateapp.crushmate.activities.CallbackInterace
 import com.crushmateapp.crushmate.util.User
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -26,9 +26,9 @@ class ProfileFragment : Fragment() {
 
     private lateinit var userId: String
     private lateinit var userDatabase: DatabaseReference
-    private var callback: TinderCallback? = null
+    private var callback: CallbackInterace? = null
 
-    fun setCallback(callback: TinderCallback) {
+    fun setCallback(callback: CallbackInterace) {
         this.callback = callback
         userId = callback.onGetUserId()
         userDatabase = callback.getUserDatabase().child(userId)

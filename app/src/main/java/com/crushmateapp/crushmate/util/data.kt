@@ -1,5 +1,7 @@
 package com.crushmateapp.crushmate.util
 
+
+
 data class User(
     val uid: String? = "",
     val name: String? = "",
@@ -10,3 +12,12 @@ data class User(
     val imageurl: String? = ""
 
 )
+
+data class Chat(
+    val userId: String? = "",
+    val chatId: String? = "",
+    val otherUserId: String? = "",
+    val name: String? = "",
+    val imageUrl: String? = ""
+)
+

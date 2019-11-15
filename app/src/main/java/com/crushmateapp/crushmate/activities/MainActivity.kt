@@ -14,6 +14,7 @@ import com.crushmateapp.crushmate.Fragments.MatchesFragment
 import com.crushmateapp.crushmate.Fragments.ProfileFragment
 import com.crushmateapp.crushmate.Fragments.SwipeFragment
 import com.crushmateapp.crushmate.R
+import com.crushmateapp.crushmate.util.DATA_CHATS
 import com.crushmateapp.crushmate.util.DATA_USERS
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
@@ -25,13 +26,16 @@ import java.io.ByteArrayOutputStream
 import java.io.IOException
 
 const val REQUEST_CODE = 123
-class TinderActivity : AppCompatActivity(),TinderCallback {
+class TinderActivity : AppCompatActivity(),CallbackInterace {
 
 
 
     private val firebaseAuth = FirebaseAuth.getInstance()
     private val userId = firebaseAuth.currentUser?.uid
+
     private lateinit var userDatabase: DatabaseReference
+    private lateinit var chatDatabase: DatabaseReference
+
     private var mylist = ArrayList<String>()
     private var arrayAdapter: ArrayAdapter<String>? = null
     private var i = 0
@@ -57,6 +61,7 @@ class TinderActivity : AppCompatActivity(),TinderCallback {
         }
 
         userDatabase = FirebaseDatabase.getInstance().reference.child(DATA_USERS)
+        chatDatabase = FirebaseDatabase.getInstance().reference.child(DATA_CHATS)
 
         profileTab = navigationTabs.newTab()
         swipeTab = navigationTabs.newTab()
@@ -133,7 +138,9 @@ class TinderActivity : AppCompatActivity(),TinderCallback {
         return userDatabase
 
     }
-
+    override fun getChatDatabase(): DatabaseReference {
+       return chatDatabase
+    }
     override fun profileComplete() {
         swipeTab?.select()
     }

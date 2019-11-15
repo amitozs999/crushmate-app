@@ -12,7 +12,7 @@ import com.crushmateapp.crushmate.Adapters.CardAdapter
 
 
 import com.crushmateapp.crushmate.R
-import com.crushmateapp.crushmate.activities.TinderCallback
+import com.crushmateapp.crushmate.activities.CallbackInterace
 import com.crushmateapp.crushmate.util.*
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -26,9 +26,11 @@ import kotlinx.android.synthetic.main.fragment_swipe.*
  */
 class SwipeFragment : Fragment() {
 
-    private var callback: TinderCallback? = null
+    private var callback: CallbackInterace? = null
     private lateinit var userId: String
     private lateinit var userDatabase: DatabaseReference
+
+    private lateinit var chatDatabase: DatabaseReference
 
     private var cardAdapter: ArrayAdapter<User>? = null
     private var Itemlist = ArrayList<User>()
@@ -37,10 +39,11 @@ class SwipeFragment : Fragment() {
     private var userName: String? = null
     private var imageUrl: String? = null
 
-    fun setCallback(callback: TinderCallback) {
+    fun setCallback(callback: CallbackInterace) {
         this.callback = callback
         userId = callback.onGetUserId()
         userDatabase = callback.getUserDatabase()  ///owhole database not single user database databa
+        chatDatabase = callback.getChatDatabase()
 
     }
 
@@ -106,13 +109,24 @@ class SwipeFragment : Fragment() {
                                 if (p0.hasChild(selectedUserId)) {
                                     Toast.makeText(context, "Match!", Toast.LENGTH_SHORT).show()
 
+                                    val chatKey = chatDatabase.push().key
 
-                                    //both siwiped right bcoz p0 has child seleteduserid
+                                    if (chatKey != null) {
+
+                                        //both siwiped right bcoz p0 has child seleteduserid
                                         userDatabase.child(userId).child(DATA_SWIPES_RIGHT).child(selectedUserId).removeValue()
-                                        userDatabase.child(userId).child(DATA_MATCHES).child(selectedUserId).setValue(true)
-                                        userDatabase.child(selectedUserId).child(DATA_MATCHES).child(userId).setValue(true)
+                                        userDatabase.child(userId).child(DATA_MATCHES).child(selectedUserId).setValue(chatKey)
+                                        userDatabase.child(selectedUserId).child(DATA_MATCHES).child(userId).setValue(chatKey)
 
 
+                                        //update both user chat list recyclerview
+                                        chatDatabase.child(chatKey).child(userId).child(DATA_NAME).setValue(userName)
+                                        chatDatabase.child(chatKey).child(userId).child(DATA_IMAGE_URL).setValue(imageUrl)
+
+                                        chatDatabase.child(chatKey).child(selectedUserId).child(DATA_NAME).setValue(selectedUser.name)
+                                        chatDatabase.child(chatKey).child(selectedUserId).child(DATA_IMAGE_URL).setValue(selectedUser.imageurl)
+
+                                    }
 
                                 } else {
                                     userDatabase.child(selectedUserId).child(DATA_SWIPES_RIGHT).child(userId)
