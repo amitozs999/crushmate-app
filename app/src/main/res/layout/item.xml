@@ -22,9 +22,9 @@
 
         <ImageView
             android:id="@+id/imagecv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitCenter"/>
+            android:layout_width="300sp"
+            android:layout_height="350sp"
+            android:scaleType="fitCenter" />
 
         <LinearLayout
             android:id="@+id/InfoLay"

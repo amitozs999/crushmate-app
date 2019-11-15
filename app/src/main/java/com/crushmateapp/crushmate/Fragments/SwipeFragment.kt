@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.crushmateapp.crushmate.Adapters.CardAdapter
 
 
@@ -39,7 +40,7 @@ class SwipeFragment : Fragment() {
     fun setCallback(callback: TinderCallback) {
         this.callback = callback
         userId = callback.onGetUserId()
-        userDatabase = callback.getUserDatabase()
+        userDatabase = callback.getUserDatabase()  ///owhole database not single user database databa
 
     }
 
@@ -71,14 +72,55 @@ class SwipeFragment : Fragment() {
         frame.adapter = cardAdapter
         frame.setFlingListener(object : SwipeFlingAdapterView.onFlingListener {
             override fun removeFirstObjectInAdapter() {
+                Itemlist.removeAt(0)
+                cardAdapter?.notifyDataSetChanged()
 
             }
 
             override fun onLeftCardExit(p0: Any?) {
+                var user = p0 as User
+                userDatabase.child(user.uid.toString()).child(DATA_SWIPES_LEFT).child(userId).setValue(true)
+
+                //   p0 users
+                //   |_id2(swiped left)
+                //              |__lefts=id1(user id ho swiped)=true
+
 
             }
 
             override fun onRightCardExit(p0: Any?) {
+
+                val selectedUser = p0 as User
+                val selectedUserId = selectedUser.uid
+                if (!selectedUserId.isNullOrEmpty()) {
+                    userDatabase.child(userId).child(DATA_SWIPES_RIGHT)
+                        .addListenerForSingleValueEvent(object : ValueEventListener {
+                            override fun onCancelled(p0: DatabaseError) {
+                            }
+
+                            override fun onDataChange(p0: DataSnapshot) {
+
+                                //there are two cases if both have swiped or just one swiped right
+                                //if both swiped right then make matches value true for both
+                                //else just make swiped right true
+                                if (p0.hasChild(selectedUserId)) {
+                                    Toast.makeText(context, "Match!", Toast.LENGTH_SHORT).show()
+
+
+                                    //both siwiped right bcoz p0 has child seleteduserid
+                                        userDatabase.child(userId).child(DATA_SWIPES_RIGHT).child(selectedUserId).removeValue()
+                                        userDatabase.child(userId).child(DATA_MATCHES).child(selectedUserId).setValue(true)
+                                        userDatabase.child(selectedUserId).child(DATA_MATCHES).child(userId).setValue(true)
+
+
+
+                                } else {
+                                    userDatabase.child(selectedUserId).child(DATA_SWIPES_RIGHT).child(userId)
+                                        .setValue(true)
+                                }
+                            }
+                        })
+                }
 
             }
 
@@ -103,7 +145,17 @@ class SwipeFragment : Fragment() {
             }
 
             override fun onDataChange(p0: DataSnapshot) {
-                p0.children.forEach { child ->
+                p0.children.forEach {
+
+                    //   p0 is whole users database
+                    //   users are its children
+                    //    we loop for every children
+                    //  get user using  val user = child.getValue(User::class.java)   as child
+                    //   check if already (left swiped )(right wiped )or (matches) is done
+                    //  check child
+                    //           |->swiped left
+                    //                    |->userid
+                        child ->
                     val user = child.getValue(User::class.java)
                     if (user != null) {
                         var showUser = true

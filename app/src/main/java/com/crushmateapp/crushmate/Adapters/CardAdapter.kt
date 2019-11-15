@@ -24,7 +24,7 @@ class CardAdapter(context: Context?, resourceId: Int, users: List<User>): ArrayA
 
 
         name.text = "${user!!.name}, ${user!!.age}"
-        Picasso.get().load(user?.imageurl).into(image)
+        Picasso.get().load(user?.imageurl).resize(300,350).into(image)
 
 
 
