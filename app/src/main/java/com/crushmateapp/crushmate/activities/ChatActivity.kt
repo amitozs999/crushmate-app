@@ -25,7 +25,7 @@ class ChatActivity : AppCompatActivity() {
         imageUrl = intent.getStringExtra("imageurl")
         otherUserId = intent.getStringExtra("otheruserid")
         if(chatId.isNullOrEmpty() || userId.isNullOrEmpty() || imageUrl.isNullOrEmpty() || otherUserId.isNullOrEmpty()) {
-           
+
             finish()
         }
     }

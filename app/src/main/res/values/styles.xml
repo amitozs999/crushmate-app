@@ -12,10 +12,17 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
     <style name="standardbutton">
         <item name="android:background" > @drawable/roundedbutton</item>
 
 
+    </style>
+
+    <style name="messagestyle">
+        <item name="android:textSize">20dp</item>
+        <item name="android:minHeight">50dp</item>
+        <item name="android:maxWidth">300dp</item>
     </style>
 
 
