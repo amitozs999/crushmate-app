@@ -16,6 +16,10 @@ import com.crushmateapp.crushmate.util.Message
 
 class MessageAdapter( private var messagelist: ArrayList<Message>,val userId: String) : RecyclerView.Adapter<MessageAdapter.myviewHolder>() {
 
+    fun addMessage(message: Message) {
+        messagelist.add(message)
+        notifyDataSetChanged()
+    }
 
     companion object {
         val MESSAGE_CURRENT_USER = 1

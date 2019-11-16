@@ -9,3 +9,5 @@ val DATA_CHATS = "Chats"
 
 val DATA_IMAGE_URL = "imageurl"
 val DATA_NAME = "name"
+
+val DATA_MESSAGES = "Messages"
